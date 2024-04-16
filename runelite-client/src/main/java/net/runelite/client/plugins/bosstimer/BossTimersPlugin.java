@@ -78,6 +78,18 @@ public class BossTimersPlugin extends Plugin
 			return;
 		}
 
+		if (boss == DUSK)
+		{		
+			infoBoxManager.removeIf(t -> t instanceof RespawnTimer && ((RespawnTimer) t).getBoss() == boss);
+
+			log.debug("Creating spawn timer for {} ({} seconds)", npc.getName(), boss.getSpawnTime());
+
+			RespawnTimer timer = new RespawnTimer(boss, itemManager.getImage(boss.getItemSpriteId()), this);
+			timer.setTooltip("Instance closure");
+			infoBoxManager.addInfoBox(timer);
+		}
+
+		else
 		// remove existing timer
 		infoBoxManager.removeIf(t -> t instanceof RespawnTimer && ((RespawnTimer) t).getBoss() == boss);
 
