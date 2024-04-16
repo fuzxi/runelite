@@ -78,7 +78,7 @@ public class BossTimersPlugin extends Plugin
 			return;
 		}
 
-		if (boss == DUSK)
+		if (boss == Dusk)
 		{		
 			infoBoxManager.removeIf(t -> t instanceof RespawnTimer && ((RespawnTimer) t).getBoss() == boss);
 
